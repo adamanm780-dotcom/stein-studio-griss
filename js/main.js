@@ -157,10 +157,12 @@
       pending = false;
       const rect = heroSection.getBoundingClientRect();
       const vh = window.innerHeight || document.documentElement.clientHeight;
-      // Progress 0..1: von Hero-Top am Viewport-Top bis Hero ist fast aus dem Viewport
-      const span = Math.max(rect.height - vh * 0.4, 1);
-      const scrolled = -rect.top;
-      let progress = scrolled / span;
+      // Sticky-Pin: Hero ist hoeher als Viewport. Frame-Progress laeuft ueber die
+      // ueberschuessige Hoehe (rect.height - vh). Solange rect.top > 0 (Hero noch
+      // unterhalb des Viewports) bleibt Frame 1 stehen.
+      const stickySpan = Math.max(rect.height - vh, 1);
+      const scrolled = Math.max(0, -rect.top);
+      let progress = scrolled / stickySpan;
       if (progress < 0) progress = 0;
       if (progress > 1) progress = 1;
       const idx = Math.min(total - 1, Math.round(progress * (total - 1)));

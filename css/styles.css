@@ -353,11 +353,21 @@ body > * { position: relative; z-index: 2; }
    ===================================================== */
 .hero {
   position: relative;
-  min-height: 100vh;
+  /* extra Hoehe sorgt fuer die Sticky-Pin-Strecke,
+     waehrend der die 50-Frame-Animation abgespielt wird */
+  height: 220vh;
+  overflow: visible;
+  background: var(--paper);
+}
+.hero__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   display: flex;
   align-items: center;
   padding: var(--s-9) 0 var(--s-9);
   overflow: hidden;
+  background: var(--paper);
 }
 
 /* blauer Vertikalstreifen — Hommage an die Visitenkarte */
@@ -1258,7 +1268,8 @@ body > * { position: relative; z-index: 2; }
   .topbar__burger { display: flex; }
   .topbar__inner { grid-template-columns: 1fr auto; gap: var(--s-3); }
 
-  .hero { min-height: auto; padding: var(--s-8) 0 var(--s-9); }
+  .hero { height: 240vh; }
+  .hero__sticky { padding: var(--s-7) 0 var(--s-8); }
   .hero__inner { grid-template-columns: 1fr; gap: var(--s-7); }
   .hero__crystal { order: -1; max-width: 320px; margin: 0 auto; }
   .hero__zug { margin: 0 auto; max-width: 320px; }
@@ -1284,7 +1295,7 @@ body > * { position: relative; z-index: 2; }
   .topbar__brand-text { display: none; }
   .topbar__inner { padding: var(--s-3) var(--gutter); }
 
-  .hero { padding: var(--s-7) 0 var(--s-8); }
+  .hero__sticky { padding: var(--s-7) 0 var(--s-8); }
   .hero__inner { padding-left: calc(56px + var(--gutter)); padding-right: var(--gutter); }
   .hero__title-line--ital { font-size: 38px; }
   .hero__title-line--big { font-size: 88px; }
