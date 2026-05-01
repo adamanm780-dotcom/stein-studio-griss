@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,30..100;1,9..144,200..900,30..100&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=3" />
+  <link rel="stylesheet" href="css/styles.css?v=4" />
   <link rel="icon" type="image/svg+xml" href="svg/favicon.svg" />
 </head>
 <body>
@@ -85,22 +85,10 @@
         </h1>
 
         <div class="hero__crystal" aria-hidden="true">
-          <svg viewBox="0 0 360 480" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
-            <!-- linker Kristall -->
-            <path d="M70 460 L40 280 L90 150 L130 270 L120 460 Z" />
-            <path d="M40 280 L130 270 M90 150 L120 460" />
-            <!-- mittlerer großer Kristall -->
-            <path d="M180 470 L150 220 L210 60 L270 200 L240 470 Z" />
-            <path d="M150 220 L270 200 M210 60 L240 470 M210 60 L180 470" />
-            <!-- rechter Kristall -->
-            <path d="M270 460 L260 300 L300 180 L340 290 L310 460 Z" />
-            <path d="M260 300 L340 290 M300 180 L310 460" />
-            <!-- kleiner Kristall hinten -->
-            <path d="M150 460 L140 360 L170 290 L200 380 L185 460 Z" />
-            <!-- Boden / Sockel -->
-            <path d="M30 462 L345 462" stroke-dasharray="3 4" />
-          </svg>
-          <span class="hero__crystal-label">Bergkristall · SiO₂ · Specimen N° 001</span>
+          <div class="hero__zug" data-frames="50" data-frame-path="assets/hero-zug/frame-" data-frame-ext=".webp">
+            <canvas class="hero__zug-canvas" width="720" height="960"></canvas>
+            <img class="hero__zug-fallback" src="assets/hero-zug/frame-001.webp" alt="" loading="eager" decoding="async" />
+          </div>
         </div>
 
         <p class="hero__lede">
@@ -669,6 +657,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=2" defer></script>
+  <script src="js/main.js?v=3" defer></script>
 </body>
 </html>

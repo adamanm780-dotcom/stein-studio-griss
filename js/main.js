@@ -118,4 +118,62 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
+  /* ---------- Hero-Zug · scroll-gesteuerte 50-Frame-Animation ---------- */
+  const zug = document.querySelector('.hero__zug');
+  const heroSection = document.querySelector('.hero');
+  if (zug && heroSection) {
+    const total = parseInt(zug.dataset.frames, 10) || 50;
+    const path = zug.dataset.framePath || 'assets/hero-zug/frame-';
+    const ext = zug.dataset.frameExt || '.webp';
+    const canvas = zug.querySelector('.hero__zug-canvas');
+    const fallback = zug.querySelector('.hero__zug-fallback');
+    const ctx = canvas && canvas.getContext('2d');
+
+    const pad = (n) => String(n).padStart(3, '0');
+    const frames = new Array(total);
+    let currentFrame = -1;
+
+    const draw = (idx) => {
+      if (!ctx) return;
+      const img = frames[idx];
+      if (!img || !img.complete || !img.naturalWidth) return;
+      if (currentFrame === idx) return;
+      currentFrame = idx;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      if (fallback && !fallback.hidden) fallback.hidden = true;
+    };
+
+    for (let i = 0; i < total; i++) {
+      const img = new Image();
+      img.decoding = 'async';
+      img.src = `${path}${pad(i + 1)}${ext}`;
+      img.onload = () => { if (i === 0) draw(0); else if (i === currentFrame) draw(i); };
+      frames[i] = img;
+    }
+
+    let pending = false;
+    const updateZug = () => {
+      pending = false;
+      const rect = heroSection.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      // Progress 0..1: von Hero-Top am Viewport-Top bis Hero ist fast aus dem Viewport
+      const span = Math.max(rect.height - vh * 0.4, 1);
+      const scrolled = -rect.top;
+      let progress = scrolled / span;
+      if (progress < 0) progress = 0;
+      if (progress > 1) progress = 1;
+      const idx = Math.min(total - 1, Math.round(progress * (total - 1)));
+      draw(idx);
+    };
+    const onZugScroll = () => {
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(updateZug);
+    };
+    window.addEventListener('scroll', onZugScroll, { passive: true });
+    window.addEventListener('resize', onZugScroll, { passive: true });
+    updateZug();
+  }
+
 })();
