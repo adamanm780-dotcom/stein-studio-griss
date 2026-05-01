@@ -817,7 +817,52 @@ body > * { position: relative; z-index: 2; }
   position: relative;
   color: var(--ink);
 }
-.atelier__art::before {
+.atelier__art--photo {
+  margin: 0;
+  padding: var(--s-5);
+  border-radius: 12px;
+  background: var(--paper);
+  box-shadow: 0 1px 0 rgba(28,24,18,0.04), 0 18px 40px -28px rgba(28,24,18,0.18);
+  transition: box-shadow .5s ease, transform .5s ease;
+}
+.atelier__art--photo::before { content: none; }
+.atelier__art--photo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 1px 0 rgba(28,24,18,0.06), 0 28px 60px -28px rgba(28,24,18,0.28);
+}
+.atelier__photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  aspect-ratio: 16 / 9;
+  background: var(--paper-soft);
+}
+.atelier__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.01);
+  transition: transform .9s ease, filter .6s ease;
+  filter: saturate(0.96);
+}
+.atelier__art--photo:hover .atelier__photo img {
+  transform: scale(1.045);
+  filter: saturate(1.04);
+}
+.atelier__photo-caption {
+  display: block;
+  margin-top: var(--s-3);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  text-align: right;
+}
+.atelier__art:not(.atelier__art--photo)::before {
   content: "Atelier · Lotharstrasse 8 · Mainz";
   position: absolute;
   top: 12px;
