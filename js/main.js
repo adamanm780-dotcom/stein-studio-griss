@@ -155,6 +155,7 @@
     const pad = (n) => String(n).padStart(3, '0');
     const frames = new Array(total);
     let currentFrame = -1;
+    let targetFrame = 0;
 
     const draw = (idx) => {
       if (!ctx) return;
@@ -171,7 +172,13 @@
       const img = new Image();
       img.decoding = 'async';
       img.src = `${path}${pad(i + 1)}${ext}`;
-      img.onload = () => { if (i === 0) draw(0); else if (i === currentFrame) draw(i); };
+      img.onload = () => {
+        // Wenn das gerade geladene Bild der aktuelle Scroll-Ziel-Frame ist,
+        // sofort zeichnen. Zusaetzlich: falls das Ziel-Frame mittlerweile
+        // bereits geladen ist (z.B. nach schnellem Scrollen), nachholen.
+        if (i === targetFrame) draw(i);
+        else if (frames[targetFrame] && frames[targetFrame].complete) draw(targetFrame);
+      };
       frames[i] = img;
     }
 
@@ -185,8 +192,8 @@
       let progress = scrolled / stickySpan;
       if (progress < 0) progress = 0;
       if (progress > 1) progress = 1;
-      const idx = Math.min(total - 1, Math.round(progress * (total - 1)));
-      draw(idx);
+      targetFrame = Math.min(total - 1, Math.round(progress * (total - 1)));
+      draw(targetFrame);
     };
     const onZugScroll = () => {
       if (pending) return;
