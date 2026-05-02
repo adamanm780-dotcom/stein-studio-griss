@@ -687,29 +687,37 @@ body > * { position: relative; z-index: 2; }
 
 
 /* =====================================================
-   ZUG-SHOW — Sticky Scroll-Animation Sektion
+   ZUG-SHOW — Sticky-Pin Scroll-Animation Sektion
    ===================================================== */
 .zug-show {
   position: relative;
   background: var(--paper);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+  /* Scroll-Strecke: pro 100vh läuft ein Teil der Animation.
+     400vh = 300vh aktive Animation + 100vh viewport = 50 Frames in Ruhe scrollbar */
+  height: 400vh;
+}
+.zug-show__pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 .zug-show__inner {
-  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: start;
+  align-items: center;
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: var(--s-9) var(--gutter);
-  min-height: 250vh;
+  padding: 0 var(--gutter);
+  width: 100%;
   gap: var(--s-8);
 }
 .zug-show__copy {
-  position: sticky;
-  top: 18vh;
-  align-self: start;
   display: flex;
   flex-direction: column;
   gap: var(--s-4);
@@ -745,18 +753,28 @@ body > * { position: relative; z-index: 2; }
   max-width: 42ch;
   font-variation-settings: "opsz" 24, "SOFT" 50;
 }
+.zug-show__hint {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin-top: var(--s-4);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.zug-show__hint svg { animation: bob 2.4s ease-in-out infinite; }
 .zug-show__stage {
-  position: sticky;
-  top: 8vh;
-  height: 84vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 .zug {
   position: relative;
   width: 100%;
-  max-width: 520px;
+  max-width: 540px;
   aspect-ratio: 3 / 4;
 }
 .zug__canvas,
@@ -774,18 +792,22 @@ body > * { position: relative; z-index: 2; }
 }
 
 @media (max-width: 1024px) {
+  .zug-show {
+    height: 320vh;
+  }
   .zug-show__inner {
     grid-template-columns: 1fr;
-    min-height: 200vh;
-    gap: var(--s-6);
+    gap: var(--s-5);
   }
-  .zug-show__copy {
-    position: relative;
-    top: auto;
-  }
-  .zug-show__stage {
-    height: 70vh;
-  }
+  .zug-show__copy { order: 2; }
+  .zug-show__stage { order: 1; height: 55vh; }
+  .zug { max-width: 380px; aspect-ratio: 3 / 4; }
+}
+
+@media (max-width: 640px) {
+  .zug-show { height: 280vh; }
+  .zug-show__stage { height: 50vh; }
+  .zug { max-width: 280px; }
 }
 
 

@@ -119,22 +119,30 @@
          (5 Edelsteine bewegen sich beim Scrollen aufeinander zu)
          ============================================================ -->
     <section class="zug-show" aria-label="Edelstein-Sammlung — animierte Komposition">
-      <div class="zug-show__inner">
-        <div class="zug-show__copy">
-          <p class="zug-show__kicker">§ II · Sammlung</p>
-          <h2 class="zug-show__title">
-            Aus den vier Welten — fünf <em>Charaktere</em>.
-          </h2>
-          <p class="zug-show__lede">
-            Saphir. Amethyst. Rubin. Rosenquarz. Citrin. Scrollen Sie weiter,
-            und sehen Sie, wie eine Sammlung entsteht.
-          </p>
-        </div>
+      <div class="zug-show__pin">
+        <div class="zug-show__inner">
+          <div class="zug-show__copy">
+            <p class="zug-show__kicker">§ II · Sammlung</p>
+            <h2 class="zug-show__title">
+              Aus den vier Welten — fünf <em>Charaktere</em>.
+            </h2>
+            <p class="zug-show__lede">
+              Saphir. Amethyst. Rubin. Rosenquarz. Citrin. Scrollen Sie weiter,
+              und sehen Sie, wie eine Sammlung entsteht.
+            </p>
+            <span class="zug-show__hint" aria-hidden="true">
+              <svg viewBox="0 0 12 28" width="12" height="28" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+                <path d="M6 2 L6 24 M2 20 L6 24 L10 20"/>
+              </svg>
+              Scrollen
+            </span>
+          </div>
 
-        <div class="zug-show__stage">
-          <div class="zug" data-frames="50" data-frame-path="assets/hero-zug/frame-" data-frame-ext=".webp" aria-hidden="true">
-            <canvas class="zug__canvas" width="720" height="960"></canvas>
-            <img class="zug__fallback" src="assets/hero-zug/frame-001.webp" alt="" loading="eager" decoding="async" />
+          <div class="zug-show__stage">
+            <div class="zug" data-frames="50" data-frame-path="assets/hero-zug/frame-" data-frame-ext=".webp" aria-hidden="true">
+              <canvas class="zug__canvas" width="720" height="960"></canvas>
+              <img class="zug__fallback" src="assets/hero-zug/frame-001.webp" alt="" loading="eager" decoding="async" />
+            </div>
           </div>
         </div>
       </div>
