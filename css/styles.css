@@ -574,6 +574,109 @@ body > * { position: relative; z-index: 2; }
 
 
 /* =====================================================
+   ZUG-SHOW — Sticky Scroll-Animation Sektion
+   ===================================================== */
+.zug-show {
+  position: relative;
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.zug-show__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: var(--s-9) var(--gutter);
+  min-height: 250vh;
+  gap: var(--s-8);
+}
+.zug-show__copy {
+  position: sticky;
+  top: 18vh;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+.zug-show__kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.zug-show__title {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: clamp(34px, 4vw, 60px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+  font-variation-settings: "opsz" 96, "SOFT" 40;
+  max-width: 14ch;
+}
+.zug-show__title em {
+  font-style: italic;
+  color: var(--blue-deep);
+  font-variation-settings: "opsz" 96, "SOFT" 90;
+}
+.zug-show__lede {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: clamp(16px, 1.2vw, 19px);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 42ch;
+  font-variation-settings: "opsz" 24, "SOFT" 50;
+}
+.zug-show__stage {
+  position: sticky;
+  top: 8vh;
+  height: 84vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.zug {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 3 / 4;
+}
+.zug__canvas,
+.zug__fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+.zug__canvas {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+@media (max-width: 1024px) {
+  .zug-show__inner {
+    grid-template-columns: 1fr;
+    min-height: 200vh;
+    gap: var(--s-6);
+  }
+  .zug-show__copy {
+    position: relative;
+    top: auto;
+  }
+  .zug-show__stage {
+    height: 70vh;
+  }
+}
+
+
+/* =====================================================
    MANIFEST
    ===================================================== */
 .manifest {

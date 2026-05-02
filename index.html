@@ -101,6 +101,33 @@
 
 
     <!-- ============================================================
+         ZUG-INTERLUDE — scroll-gesteuerte 50-Frame-Animation
+         (5 Edelsteine bewegen sich beim Scrollen aufeinander zu)
+         ============================================================ -->
+    <section class="zug-show" aria-label="Edelstein-Sammlung — animierte Komposition">
+      <div class="zug-show__inner">
+        <div class="zug-show__copy">
+          <p class="zug-show__kicker">§ II · Sammlung</p>
+          <h2 class="zug-show__title">
+            Aus den vier Welten — fünf <em>Charaktere</em>.
+          </h2>
+          <p class="zug-show__lede">
+            Saphir. Amethyst. Rubin. Rosenquarz. Citrin. Scrollen Sie weiter,
+            und sehen Sie, wie eine Sammlung entsteht.
+          </p>
+        </div>
+
+        <div class="zug-show__stage">
+          <div class="zug" data-frames="50" data-frame-path="assets/hero-zug/frame-" data-frame-ext=".webp" aria-hidden="true">
+            <canvas class="zug__canvas" width="720" height="960"></canvas>
+            <img class="zug__fallback" src="assets/hero-zug/frame-001.webp" alt="" loading="eager" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
          VIER WELTEN — Index wie ein Museumskatalog
          ============================================================ -->
     <section id="welten" class="welten" aria-labelledby="welten-title">
