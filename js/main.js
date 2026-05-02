@@ -165,7 +165,9 @@
       currentFrame = idx;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-      if (fallback && !fallback.hidden) fallback.hidden = true;
+      // Inline-style statt [hidden]-Attribut, damit ein evtl. CSS-Rule
+      // mit `display: block` auf .zug__fallback nicht das Verstecken blockiert.
+      if (fallback && fallback.style.display !== 'none') fallback.style.display = 'none';
     };
 
     for (let i = 0; i < total; i++) {
