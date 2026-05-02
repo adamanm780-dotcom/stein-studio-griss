@@ -232,23 +232,24 @@ body > * { position: relative; z-index: 2; }
   width: 100%;
 }
 .loader__logo {
-  width: 132px;
-  height: 105px;
-  color: var(--ink);
+  width: 180px;
+  height: 144px;
   animation: loader-rise 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) both,
-             loader-shimmer 2.4s ease-in-out infinite alternate 0.6s;
+             loader-pulse 2.6s ease-in-out infinite alternate 0.6s;
 }
-.loader__logo svg {
+.loader__logo img {
   width: 100%;
   height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 18px rgba(28, 24, 18, 0.12));
 }
 @keyframes loader-rise {
   from { opacity: 0; transform: translateY(14px) scale(0.94); }
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
-@keyframes loader-shimmer {
-  from { color: var(--ink);     transform: scale(1); }
-  to   { color: var(--blue-deep); transform: scale(1.03); }
+@keyframes loader-pulse {
+  from { transform: scale(1) rotate(0deg); }
+  to   { transform: scale(1.04) rotate(-1.2deg); }
 }
 .loader__brand {
   display: flex;
@@ -342,13 +343,15 @@ body > * { position: relative; z-index: 2; }
 }
 .topbar__brand-mark {
   display: inline-flex;
-  width: 36px;
+  width: 42px;
   height: 36px;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--ink);
-  border-radius: var(--r-sm);
-  color: var(--blue-deep);
+}
+.topbar__brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .topbar__brand-text {
   display: flex;
