@@ -3,6 +3,29 @@
 (() => {
   'use strict';
 
+  /* ---------- Loader · ausfaden nach Page-Load ---------- */
+  const loader = document.getElementById('loader');
+  if (loader) {
+    // Mindestdauer 1400ms — auch bei sofort fertigem Page-Load,
+    // damit das Logo wahrnehmbar ist
+    const minShow = 1400;
+    const start = performance.now();
+    const hide = () => {
+      const elapsed = performance.now() - start;
+      const wait = Math.max(0, minShow - elapsed);
+      setTimeout(() => {
+        loader.classList.add('is-hidden');
+        // Nach Transition komplett aus dem DOM nehmen
+        setTimeout(() => loader.remove(), 800);
+      }, wait);
+    };
+    if (document.readyState === 'complete') {
+      hide();
+    } else {
+      window.addEventListener('load', hide, { once: true });
+    }
+  }
+
   /* ---------- Jahr im Footer ---------- */
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());

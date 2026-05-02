@@ -8,10 +8,56 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,30..100;1,9..144,200..900,30..100&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=13" />
+  <link rel="stylesheet" href="css/styles.css?v=14" />
   <link rel="icon" type="image/svg+xml" href="svg/favicon.svg" />
 </head>
 <body>
+
+  <!-- ============================================================
+       LOADER — kurzer Splash-Screen mit Logo, fadet nach Page-Load aus
+       ============================================================ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <div class="loader__logo">
+        <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M55 285 Q90 278 130 282 Q170 286 200 280 Q230 276 270 282 Q310 286 345 282" stroke-width="2.5"/>
+          <path d="M195 285 L175 130 L195 60 L210 65 L228 130 L218 285 Z"/>
+          <path d="M175 130 L228 130"/>
+          <path d="M195 60 L218 285"/>
+          <path d="M210 65 L195 285"/>
+          <path d="M195 60 L210 65"/>
+          <path d="M115 290 L100 195 L120 130 L142 135 L155 200 L142 290 Z"/>
+          <path d="M100 195 L155 200"/>
+          <path d="M120 130 L142 290"/>
+          <path d="M142 135 L115 290"/>
+          <path d="M120 130 L142 135"/>
+          <path d="M70 290 L55 245 L80 200 L108 215 L120 260 L100 290 Z"/>
+          <path d="M55 245 L120 260"/>
+          <path d="M80 200 L108 215"/>
+          <path d="M80 200 L100 290"/>
+          <path d="M108 215 L70 290"/>
+          <path d="M260 290 L248 200 L268 140 L290 145 L300 205 L285 290 Z"/>
+          <path d="M248 200 L300 205"/>
+          <path d="M268 140 L285 290"/>
+          <path d="M290 145 L260 290"/>
+          <path d="M268 140 L290 145"/>
+          <path d="M310 290 L298 230 L320 175 L348 195 L355 250 L340 290 Z"/>
+          <path d="M298 230 L355 250"/>
+          <path d="M320 175 L348 195"/>
+          <path d="M320 175 L340 290"/>
+          <path d="M348 195 L310 290"/>
+          <path d="M180 290 L170 250 L185 220 L205 220 L218 250 L210 290 Z" stroke-width="2.5"/>
+          <path d="M170 250 L218 250"/>
+        </svg>
+      </div>
+      <div class="loader__brand">
+        <span class="loader__brand-name">Stein-Studio Griss</span>
+        <span class="loader__brand-tag">wir lieben steine</span>
+      </div>
+      <div class="loader__bar" aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+
 
   <!-- ============================================================
        TOP BAR — Museumsleitung im Stil eines Ausstellungs-Banners
@@ -20,9 +66,18 @@
     <div class="topbar__inner">
       <a class="topbar__brand" href="#top" aria-label="Stein-Studio Inge Griss — zum Anfang">
         <span class="topbar__brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
-            <path d="M16 3 L27 12 L22 27 L10 27 L5 12 Z" />
-            <path d="M16 3 L10 27 M16 3 L22 27 M5 12 L27 12 M10 27 L22 27" />
+          <svg viewBox="0 0 400 320" width="32" height="26" fill="none" stroke="currentColor" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" preserveAspectRatio="xMidYMid meet">
+            <path d="M195 285 L175 130 L195 60 L210 65 L228 130 L218 285 Z"/>
+            <path d="M175 130 L228 130"/>
+            <path d="M195 60 L218 285"/>
+            <path d="M210 65 L195 285"/>
+            <path d="M115 290 L100 195 L120 130 L142 135 L155 200 L142 290 Z"/>
+            <path d="M100 195 L155 200"/>
+            <path d="M120 130 L142 290"/>
+            <path d="M260 290 L248 200 L268 140 L290 145 L300 205 L285 290 Z"/>
+            <path d="M248 200 L300 205"/>
+            <path d="M268 140 L285 290"/>
+            <path d="M180 290 L170 250 L185 220 L205 220 L218 250 L210 290 Z"/>
           </svg>
         </span>
         <span class="topbar__brand-text">
@@ -608,6 +663,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=4" defer></script>
+  <script src="js/main.js?v=5" defer></script>
 </body>
 </html>

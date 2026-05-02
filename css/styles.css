@@ -204,6 +204,115 @@ body > * { position: relative; z-index: 2; }
 
 
 /* =====================================================
+   LOADER · Splash-Screen mit Logo
+   ===================================================== */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  pointer-events: all;
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.7s linear;
+}
+.loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.loader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-5);
+  padding: var(--gutter);
+  max-width: 480px;
+  width: 100%;
+}
+.loader__logo {
+  width: 132px;
+  height: 105px;
+  color: var(--ink);
+  animation: loader-rise 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) both,
+             loader-shimmer 2.4s ease-in-out infinite alternate 0.6s;
+}
+.loader__logo svg {
+  width: 100%;
+  height: 100%;
+}
+@keyframes loader-rise {
+  from { opacity: 0; transform: translateY(14px) scale(0.94); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes loader-shimmer {
+  from { color: var(--ink);     transform: scale(1); }
+  to   { color: var(--blue-deep); transform: scale(1.03); }
+}
+.loader__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  opacity: 0;
+  animation: loader-fade-up 0.9s ease-out 0.5s both;
+}
+.loader__brand-name {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 500;
+  font-variation-settings: "opsz" 24, "SOFT" 50;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.loader__brand-tag {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--ink-mute);
+  font-variation-settings: "opsz" 14, "SOFT" 90;
+}
+@keyframes loader-fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.loader__bar {
+  width: 120px;
+  height: 1px;
+  background: var(--line);
+  position: relative;
+  overflow: hidden;
+  margin-top: var(--s-2);
+  opacity: 0;
+  animation: loader-fade-up 0.5s ease-out 0.8s both;
+}
+.loader__bar span {
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: var(--blue-deep);
+  animation: loader-progress 1.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+@keyframes loader-progress {
+  0%   { left: -40%; }
+  100% { left: 100%; }
+}
+
+/* schaltet Animation für Bewegungs-empfindliche User aus */
+@media (prefers-reduced-motion: reduce) {
+  .loader__logo,
+  .loader__brand,
+  .loader__bar,
+  .loader__bar span { animation: none; opacity: 1; }
+}
+
+
+/* =====================================================
    TOPBAR
    ===================================================== */
 .topbar {
