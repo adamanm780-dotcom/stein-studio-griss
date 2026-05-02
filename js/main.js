@@ -118,15 +118,15 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  /* ---------- Hero-Zug · scroll-gesteuerte 50-Frame-Animation ---------- */
-  const zug = document.querySelector('.hero__zug');
-  const heroSection = document.querySelector('.hero');
-  if (zug && heroSection) {
+  /* ---------- Zug-Show · scroll-gesteuerte 50-Frame-Animation ---------- */
+  const zug = document.querySelector('.zug');
+  const zugSection = document.querySelector('.zug-show');
+  if (zug && zugSection) {
     const total = parseInt(zug.dataset.frames, 10) || 50;
     const path = zug.dataset.framePath || 'assets/hero-zug/frame-';
     const ext = zug.dataset.frameExt || '.webp';
-    const canvas = zug.querySelector('.hero__zug-canvas');
-    const fallback = zug.querySelector('.hero__zug-fallback');
+    const canvas = zug.querySelector('.zug__canvas');
+    const fallback = zug.querySelector('.zug__fallback');
     const ctx = canvas && canvas.getContext('2d');
 
     const pad = (n) => String(n).padStart(3, '0');
@@ -155,11 +155,8 @@
     let pending = false;
     const updateZug = () => {
       pending = false;
-      const rect = heroSection.getBoundingClientRect();
+      const rect = zugSection.getBoundingClientRect();
       const vh = window.innerHeight || document.documentElement.clientHeight;
-      // Sticky-Pin: Hero ist hoeher als Viewport. Frame-Progress laeuft ueber die
-      // ueberschuessige Hoehe (rect.height - vh). Solange rect.top > 0 (Hero noch
-      // unterhalb des Viewports) bleibt Frame 1 stehen.
       const stickySpan = Math.max(rect.height - vh, 1);
       const scrolled = Math.max(0, -rect.top);
       let progress = scrolled / stickySpan;

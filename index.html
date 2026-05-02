@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,30..100;1,9..144,200..900,30..100&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=6" />
+  <link rel="stylesheet" href="css/styles.css?v=13" />
   <link rel="icon" type="image/svg+xml" href="svg/favicon.svg" />
 </head>
 <body>
@@ -60,61 +60,16 @@
   <main id="top">
 
     <!-- ============================================================
-         HERO — „wir lieben steine"
-         Komposition zitiert die Visitenkarte:
-         linker blauer Vertikalstreifen + ruhige Pergamentfläche
+         HERO — exakt nach Design (steinehero-mockup.png)
          ============================================================ -->
-    <section class="hero" aria-labelledby="hero-title">
-     <div class="hero__sticky">
-      <div class="hero__stripe" aria-hidden="true">
-        <span class="hero__stripe-text">Gold- und Silberschmuck · Edelsteine · Mineralien und Fossilien</span>
-        <span class="hero__stripe-text hero__stripe-text--bottom">Lotharstrasse 8 · 55116 Mainz · Nähe Römerpassage</span>
-      </div>
-
-      <div class="hero__inner">
-        <div class="hero__meta">
-          <span class="label">Mainz · 55116</span>
-          <span class="label__sep">·</span>
-          <span class="label">est. 1979</span>
-          <span class="label__sep">·</span>
-          <span class="label">Goldschmiedemeisterin</span>
-        </div>
-
-        <h1 id="hero-title" class="hero__title">
-          <span class="hero__title-line hero__title-line--ital">wir&nbsp;lieben</span>
-          <span class="hero__title-line hero__title-line--big">steine.</span>
-        </h1>
-
-        <div class="hero__crystal" aria-hidden="true">
-          <div class="hero__zug" data-frames="50" data-frame-path="assets/hero-zug/frame-" data-frame-ext=".webp">
-            <canvas class="hero__zug-canvas" width="720" height="960"></canvas>
-            <img class="hero__zug-fallback" src="assets/hero-zug/frame-001.webp" alt="" loading="eager" decoding="async" />
-          </div>
-        </div>
-
-        <p class="hero__lede">
-          Ein Studio im Herzen von Mainz für alle, die in einem Stein mehr sehen
-          als ein Schmuckstück. Seit über vierzig Jahren bewahren, fassen und
-          verkaufen wir das, was die Erde an Schönem hervorgebracht hat —
-          <em>Gold, Silber, Edelstein, Mineral, Fossil.</em>
-        </p>
-
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="#welten">
-            <span>Vier Welten betreten</span>
-            <svg viewBox="0 0 24 12" width="36" height="12" aria-hidden="true">
-              <path d="M0 6 L34 6 M28 1 L34 6 L28 11" stroke="currentColor" stroke-width="1.4" fill="none" />
-            </svg>
-          </a>
-          <a class="btn btn--ghost" href="#besuch">Im Studio besuchen</a>
-        </div>
-      </div>
-
-      <div class="hero__scroll" aria-hidden="true">
-        <span>Scrollen</span>
-        <svg viewBox="0 0 12 60" width="12" height="60"><path d="M6 0 L6 56 M2 50 L6 56 L10 50" stroke="currentColor" fill="none" stroke-width="1" /></svg>
-      </div>
-     </div>
+    <section class="hero hero--design" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="visually-hidden">Steine, die mehr sind als Schmuck. — Stein-Studio Inge Griss, Mainz seit 1979</h1>
+      <img class="hero__design"
+           src="img/hero-design.png"
+           alt="Stein-Studio Griss — Steine, die mehr sind als Schmuck. Ausgewählte Mineralien, Edelsteine und Unikate seit 1979 im Herzen von Mainz."
+           fetchpriority="high" />
+      <a class="hero__cta-overlay hero__cta-overlay--primary"  href="#welten" aria-label="Kollektion entdecken"></a>
+      <a class="hero__cta-overlay hero__cta-overlay--secondary" href="#besuch" aria-label="Studio besuchen"></a>
     </section>
 
 
@@ -146,6 +101,33 @@
 
 
     <!-- ============================================================
+         ZUG-INTERLUDE — scroll-gesteuerte 50-Frame-Animation
+         (5 Edelsteine bewegen sich beim Scrollen aufeinander zu)
+         ============================================================ -->
+    <section class="zug-show" aria-label="Edelstein-Sammlung — animierte Komposition">
+      <div class="zug-show__inner">
+        <div class="zug-show__copy">
+          <p class="zug-show__kicker">§ II · Sammlung</p>
+          <h2 class="zug-show__title">
+            Aus den vier Welten — fünf <em>Charaktere</em>.
+          </h2>
+          <p class="zug-show__lede">
+            Saphir. Amethyst. Rubin. Rosenquarz. Citrin. Scrollen Sie weiter,
+            und sehen Sie, wie eine Sammlung entsteht.
+          </p>
+        </div>
+
+        <div class="zug-show__stage">
+          <div class="zug" data-frames="50" data-frame-path="assets/hero-zug/frame-" data-frame-ext=".webp" aria-hidden="true">
+            <canvas class="zug__canvas" width="720" height="960"></canvas>
+            <img class="zug__fallback" src="assets/hero-zug/frame-001.webp" alt="" loading="eager" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
          VIER WELTEN — Index wie ein Museumskatalog
          ============================================================ -->
     <section id="welten" class="welten" aria-labelledby="welten-title">
@@ -166,15 +148,15 @@
               <span class="welt__roman">I</span>
               <h3 class="welt__title">Gold- &amp; Silberschmuck</h3>
             </header>
-            <div class="welt__art" aria-hidden="true">
-              <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
-                <circle cx="100" cy="110" r="62" />
-                <circle cx="100" cy="110" r="56" stroke-dasharray="2 4" />
-                <path d="M100 48 L88 60 L100 72 L112 60 Z" />
-                <path d="M88 60 L100 48 L112 60 M100 48 L100 72" />
-                <path d="M70 110 L100 110 M100 110 L130 110" stroke-dasharray="1 3" />
-              </svg>
-            </div>
+            <figure class="welt__art">
+              <img
+                src="https://plus.unsplash.com/premium_photo-1757960107488-0f878c35f0a0?w=900&q=85&auto=format&fit=crop"
+                srcset="https://plus.unsplash.com/premium_photo-1757960107488-0f878c35f0a0?w=600&q=80&auto=format&fit=crop 600w, https://plus.unsplash.com/premium_photo-1757960107488-0f878c35f0a0?w=1100&q=85&auto=format&fit=crop 1100w"
+                sizes="(max-width: 1024px) 90vw, 40vw"
+                alt="Goldschmuck auf Naturstein"
+                loading="lazy"
+              />
+            </figure>
             <p class="welt__copy">
               Klassiker, Anfertigungen und ausgewählte Trauringe. Wir fassen
               Steine, ändern Erbstücke und arbeiten an eigenen Entwürfen — vom
@@ -193,14 +175,15 @@
               <span class="welt__roman">II</span>
               <h3 class="welt__title">Edelsteine</h3>
             </header>
-            <div class="welt__art" aria-hidden="true">
-              <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
-                <path d="M100 36 L160 90 L130 168 L70 168 L40 90 Z" />
-                <path d="M40 90 L160 90" />
-                <path d="M100 36 L70 168 M100 36 L130 168" />
-                <path d="M70 90 L100 36 L130 90 M70 90 L100 168 L130 90" />
-              </svg>
-            </div>
+            <figure class="welt__art">
+              <img
+                src="https://images.unsplash.com/photo-1753521915973-bf8c06cac2ce?w=900&q=85&auto=format&fit=crop"
+                srcset="https://images.unsplash.com/photo-1753521915973-bf8c06cac2ce?w=600&q=80&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1753521915973-bf8c06cac2ce?w=1100&q=85&auto=format&fit=crop 1100w"
+                sizes="(max-width: 1024px) 90vw, 40vw"
+                alt="Sammlung roher, naturbelassener Edelsteine"
+                loading="lazy"
+              />
+            </figure>
             <p class="welt__copy">
               Geschliffen, kalibriert und ehrlich beschrieben. Smaragd, Saphir,
               Rubin, Turmalin, Aquamarin — und die seltenen Stücke, die nicht
@@ -219,13 +202,15 @@
               <span class="welt__roman">III</span>
               <h3 class="welt__title">Mineralien</h3>
             </header>
-            <div class="welt__art" aria-hidden="true">
-              <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
-                <path d="M30 170 L60 90 L100 50 L150 70 L170 130 L150 170 Z" />
-                <path d="M60 90 L100 50 M100 50 L150 70 M60 90 L150 70 M150 70 L170 130 M60 90 L150 170 M100 50 L150 170" />
-                <path d="M55 170 L155 170" stroke-dasharray="3 4" />
-              </svg>
-            </div>
+            <figure class="welt__art">
+              <img
+                src="https://images.unsplash.com/photo-1771922654039-93bbda6f1c84?w=900&q=85&auto=format&fit=crop"
+                srcset="https://images.unsplash.com/photo-1771922654039-93bbda6f1c84?w=600&q=80&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1771922654039-93bbda6f1c84?w=1100&q=85&auto=format&fit=crop 1100w"
+                sizes="(max-width: 1024px) 90vw, 40vw"
+                alt="Roher Naturkristall auf Gestein"
+                loading="lazy"
+              />
+            </figure>
             <p class="welt__copy">
               Roh, ungeschliffen, manchmal millionen Jahre alt. Drusen,
               Kristallstufen, Achate. Stücke, bei denen man die Hand auflegen
@@ -244,15 +229,15 @@
               <span class="welt__roman">IV</span>
               <h3 class="welt__title">Fossilien</h3>
             </header>
-            <div class="welt__art" aria-hidden="true">
-              <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
-                <path d="M100 40 a60 60 0 1 0 0.01 0" />
-                <path d="M100 60 a40 40 0 1 0 0.01 0" />
-                <path d="M100 80 a20 20 0 1 0 0.01 0" />
-                <path d="M40 100 L160 100" stroke-dasharray="2 4" />
-                <path d="M100 40 L100 160" stroke-dasharray="2 4" />
-              </svg>
-            </div>
+            <figure class="welt__art">
+              <img
+                src="https://images.unsplash.com/photo-1759680239551-bd495c0588e9?w=900&q=85&auto=format&fit=crop"
+                srcset="https://images.unsplash.com/photo-1759680239551-bd495c0588e9?w=600&q=80&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1759680239551-bd495c0588e9?w=1100&q=85&auto=format&fit=crop 1100w"
+                sizes="(max-width: 1024px) 90vw, 40vw"
+                alt="Trilobit-Fossil im Gestein"
+                loading="lazy"
+              />
+            </figure>
             <p class="welt__copy">
               Was uns am meisten unterscheidet: ein Juwelier, der auch Fossilien
               führt. Ammoniten, Trilobiten, fossile Hölzer, einzeln katalogisiert
@@ -290,12 +275,8 @@
 
           <!-- 001 -->
           <figure class="specimen">
-            <div class="specimen__art" aria-hidden="true">
-              <svg viewBox="0 0 240 280" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
-                <path d="M50 260 L30 130 L80 40 L150 80 L210 150 L180 260 Z" />
-                <path d="M30 130 L150 80 M80 40 L180 260 M150 80 L180 260 M30 130 L100 260" />
-                <path d="M120 80 L100 260 M150 80 L130 220" />
-              </svg>
+            <div class="specimen__art">
+              <img src="https://images.unsplash.com/photo-1767131543879-73614ee63985?w=700&q=85&auto=format&fit=crop" alt="Klare Bergkristall-Spitze" loading="lazy" />
             </div>
             <figcaption class="specimen__cap">
               <div class="specimen__row">
@@ -311,13 +292,8 @@
 
           <!-- 002 -->
           <figure class="specimen">
-            <div class="specimen__art" aria-hidden="true">
-              <svg viewBox="0 0 240 280" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
-                <path d="M120 50 L200 130 L120 220 L40 130 Z" />
-                <path d="M40 130 L200 130 M120 50 L120 220" />
-                <path d="M80 90 L120 50 L160 90 M80 90 L160 90 M80 170 L120 220 L160 170 M80 170 L160 170" />
-                <circle cx="120" cy="130" r="8" />
-              </svg>
+            <div class="specimen__art">
+              <img src="https://plus.unsplash.com/premium_photo-1701094772048-fd7ae42b12ac?w=700&q=85&auto=format&fit=crop" alt="Roher grüner Beryl-Kristall (Smaragd)" loading="lazy" />
             </div>
             <figcaption class="specimen__cap">
               <div class="specimen__row">
@@ -333,15 +309,8 @@
 
           <!-- 003 -->
           <figure class="specimen">
-            <div class="specimen__art" aria-hidden="true">
-              <svg viewBox="0 0 240 280" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
-                <path d="M120 60 a90 90 0 1 0 0.01 0" />
-                <path d="M120 60 a90 90 0 1 1 -0.01 0" stroke-dasharray="3 5" />
-                <path d="M120 90 a60 60 0 1 0 0.01 0" />
-                <path d="M120 110 a40 40 0 1 0 0.01 0" />
-                <path d="M120 130 a20 20 0 1 0 0.01 0" />
-                <circle cx="120" cy="150" r="3" fill="currentColor" />
-              </svg>
+            <div class="specimen__art">
+              <img src="https://images.unsplash.com/photo-1631631648747-5831f56f2fba?w=700&q=85&auto=format&fit=crop" alt="Ammonit-Fossil" loading="lazy" />
             </div>
             <figcaption class="specimen__cap">
               <div class="specimen__row">
@@ -357,14 +326,8 @@
 
           <!-- 004 -->
           <figure class="specimen">
-            <div class="specimen__art" aria-hidden="true">
-              <svg viewBox="0 0 240 280" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
-                <circle cx="120" cy="140" r="80" />
-                <circle cx="120" cy="140" r="74" stroke-dasharray="1 3" />
-                <path d="M120 60 L108 80 L120 100 L132 80 Z" />
-                <path d="M108 80 L132 80" />
-                <path d="M120 100 L120 220" stroke-dasharray="2 5" />
-              </svg>
+            <div class="specimen__art">
+              <img src="https://images.unsplash.com/photo-1720189031165-b6f3cf3ff940?w=700&q=85&auto=format&fit=crop" alt="Solitärring 750 Gold" loading="lazy" />
             </div>
             <figcaption class="specimen__cap">
               <div class="specimen__row">
@@ -380,12 +343,8 @@
 
           <!-- 005 -->
           <figure class="specimen">
-            <div class="specimen__art" aria-hidden="true">
-              <svg viewBox="0 0 240 280" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
-                <path d="M40 240 L70 110 L130 50 L200 100 L210 220 L160 240 Z" />
-                <path d="M70 110 L130 50 M130 50 L200 100 M70 110 L200 100 M70 110 L160 240 M130 50 L210 220" />
-                <path d="M105 80 L120 50 L150 70" />
-              </svg>
+            <div class="specimen__art">
+              <img src="https://images.unsplash.com/photo-1626470408813-f0059745d58b?w=700&q=85&auto=format&fit=crop" alt="Amethyst-Druse" loading="lazy" />
             </div>
             <figcaption class="specimen__cap">
               <div class="specimen__row">
@@ -401,15 +360,8 @@
 
           <!-- 006 -->
           <figure class="specimen">
-            <div class="specimen__art" aria-hidden="true">
-              <svg viewBox="0 0 240 280" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
-                <ellipse cx="120" cy="140" rx="90" ry="60" />
-                <ellipse cx="120" cy="140" rx="70" ry="46" />
-                <ellipse cx="120" cy="140" rx="50" ry="32" />
-                <ellipse cx="120" cy="140" rx="30" ry="18" />
-                <path d="M30 140 L210 140" stroke-dasharray="2 4" />
-                <path d="M120 80 L120 200" stroke-dasharray="2 4" />
-              </svg>
+            <div class="specimen__art">
+              <img src="https://plus.unsplash.com/premium_photo-1673422506783-a6b8a21025ad?w=700&q=85&auto=format&fit=crop" alt="Trilobit auf Matrix" loading="lazy" />
             </div>
             <figcaption class="specimen__cap">
               <div class="specimen__row">

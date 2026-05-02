@@ -21,3 +21,9 @@ node_modules/
 .env.*.local
 
 .vercel
+
+# build tooling (lokal, nicht für deployment)
+node_modules/
+package.json
+package-lock.json
+scripts/
