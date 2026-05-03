@@ -917,10 +917,11 @@ body > * { position: relative; z-index: 2; }
 }
 .zug__canvas,
 .zug__fallback {
-  /* Bunte Edelsteine → klarer Bergkristall (Logo-Treue):
-     grayscale entfärbt, brightness+contrast hebt die Facetten,
-     leichter Blaustich greift Stein-Studio-Brand auf */
-  filter: grayscale(1) brightness(1.18) contrast(1.12) sepia(0.04) hue-rotate(185deg);
+  /* Frames sind bereits als Bergkristall gebacken (frame-bk-*).
+     Hier nur noch leichter Lumineszenz-Glow. */
+  filter:
+    drop-shadow(0 0 8px rgba(255, 255, 255, 0.4))
+    drop-shadow(0 0 22px rgba(190, 210, 230, 0.3));
 }
 .zug__canvas {
   image-rendering: -webkit-optimize-contrast;
