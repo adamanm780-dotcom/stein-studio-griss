@@ -1050,7 +1050,7 @@ body > * { position: relative; z-index: 2; }
   position: relative;
   margin-top: var(--s-9);
   width: 100%;
-  height: clamp(110px, 14vw, 200px);
+  height: clamp(100px, 12vw, 180px);
   pointer-events: none;
   overflow: hidden;
 }
