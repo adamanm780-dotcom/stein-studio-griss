@@ -1039,9 +1039,30 @@ body > * { position: relative; z-index: 2; }
    VIER WELTEN
    ===================================================== */
 .welten {
-  padding: var(--s-9) 0;
+  padding: var(--s-9) 0 0;
   border-top: 1px solid var(--line);
   background: var(--paper-soft);
+  position: relative;
+}
+
+/* Kristall-Silhouetten am unteren Rand — Übergang in die dunkle Katalog-Sektion */
+.welten__crystals {
+  position: relative;
+  margin-top: var(--s-9);
+  width: 100%;
+  height: clamp(110px, 14vw, 200px);
+  pointer-events: none;
+  overflow: hidden;
+}
+.welten__crystals-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.welten__crystals-svg path {
+  fill: var(--ink);
 }
 .welten__inner {
   max-width: var(--maxw);
