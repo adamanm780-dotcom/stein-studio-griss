@@ -1284,7 +1284,6 @@ body > * { position: relative; z-index: 2; }
    ===================================================== */
 .atelier {
   padding: 0 0 var(--s-9);
-  border-top: 1px solid var(--line);
   position: relative;
 }
 
