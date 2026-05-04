@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,30..100;1,9..144,200..900,30..100&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=22" />
+  <link rel="stylesheet" href="css/styles.css?v=23" />
   <link rel="icon" type="image/svg+xml" href="svg/favicon.svg" />
 </head>
 <body>
@@ -187,20 +187,20 @@
 
 
     <!-- ============================================================
-         ZUG-INTERLUDE — scroll-gesteuerte 50-Frame-Animation
-         (5 Edelsteine bewegen sich beim Scrollen aufeinander zu)
+         KRISTALL-INTERLUDE — scroll-gesteuerte 45-Frame-Animation
+         (rohe Bergkristalle wachsen beim Scrollen zu einer Stufe zusammen)
          ============================================================ -->
-    <section class="zug-show" aria-label="Edelstein-Sammlung — animierte Komposition">
+    <section class="zug-show" aria-label="Bergkristall — animierte Komposition">
       <div class="zug-show__pin">
         <div class="zug-show__inner">
           <div class="zug-show__copy">
-            <p class="zug-show__kicker">§ II · Sammlung</p>
+            <p class="zug-show__kicker">§ II · Bergkristall</p>
             <h2 class="zug-show__title">
-              Aus den vier Welten — fünf <em>Charaktere</em>.
+              Wie aus einzelnen Steinen eine <em>Stufe</em> wird.
             </h2>
             <p class="zug-show__lede">
-              Saphir. Amethyst. Rubin. Rosenquarz. Citrin. Scrollen Sie weiter,
-              und sehen Sie, wie eine Sammlung entsteht.
+              Fünf rohe Bergkristalle. Scrollen Sie weiter — und sehen Sie,
+              wie sich aus einzelnen Stücken eine Kristallstufe verdichtet.
             </p>
             <span class="zug-show__hint" aria-hidden="true">
               <svg viewBox="0 0 12 28" width="12" height="28" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
@@ -211,9 +211,9 @@
           </div>
 
           <div class="zug-show__stage">
-            <div class="zug" data-frames="50" data-frame-path="assets/hero-zug/frame-bk-" data-frame-ext=".webp" aria-hidden="true">
+            <div class="zug" data-frames="45" data-frame-path="assets/hero-zug/frame-" data-frame-ext=".webp" aria-hidden="true">
               <canvas class="zug__canvas" width="720" height="960"></canvas>
-              <img class="zug__fallback" src="assets/hero-zug/frame-bk-001.webp" alt="" loading="eager" decoding="async" />
+              <img class="zug__fallback" src="assets/hero-zug/frame-001.webp" alt="" loading="eager" decoding="async" />
             </div>
           </div>
         </div>
@@ -702,6 +702,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=7" defer></script>
+  <script src="js/main.js?v=8" defer></script>
 </body>
 </html>

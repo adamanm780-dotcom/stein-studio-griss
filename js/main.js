@@ -141,11 +141,11 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  /* ---------- Zug-Show · scroll-gesteuerte 50-Frame-Animation ---------- */
+  /* ---------- Kristall-Show · scroll-gesteuerte 45-Frame-Animation ---------- */
   const zug = document.querySelector('.zug');
   const zugSection = document.querySelector('.zug-show');
   if (zug && zugSection) {
-    const total = parseInt(zug.dataset.frames, 10) || 50;
+    const total = parseInt(zug.dataset.frames, 10) || 45;
     const path = zug.dataset.framePath || 'assets/hero-zug/frame-';
     const ext = zug.dataset.frameExt || '.webp';
     const canvas = zug.querySelector('.zug__canvas');

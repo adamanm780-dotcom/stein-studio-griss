@@ -27,3 +27,6 @@ node_modules/
 package.json
 package-lock.json
 scripts/
+
+# lokale Backups (vorherige Frame-Sets)
+assets/hero-zug-old/
